@@ -274,30 +274,30 @@
   document.addEventListener("scroll", navmenuScrollspy);
 })();
 
-function sendMail(event) {
-  event.preventDefault(); // Prevent the default form submission
+// function sendMail(event) {
+//   event.preventDefault(); // Prevent the default form submission
 
-  var parms = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    subject: document.getElementById("subject").value,
-    message: document.getElementById("message").value,
-  };
+//   var parms = {
+//     name: document.getElementById("name").value,
+//     email: document.getElementById("email").value,
+//     subject: document.getElementById("subject").value,
+//     message: document.getElementById("message").value,
+//   };
 
-  const serviceID = "service_ab3qhba";
-  const templateID = "template_2m8tqgw";
+//   const serviceID = "service_ab3qhba";
+//   const templateID = "template_2m8tqgw";
 
-  emailjs.send(serviceID, templateID, parms)
-    .then((res) => {
-      document.getElementById("name").value = "";
-      document.getElementById("email").value = "";
-      document.getElementById("subject").value = "";
-      document.getElementById("message").value = "";
-      console.log(res);
-      alert("Your message sent successfully");
-    })
-    .catch((err) => console.log(err));
-}
+//   emailjs.send(serviceID, templateID, parms)
+//     .then((res) => {
+//       document.getElementById("name").value = "";
+//       document.getElementById("email").value = "";
+//       document.getElementById("subject").value = "";
+//       document.getElementById("message").value = "";
+//       console.log(res);
+//       alert("Your message sent successfully");
+//     })
+//     .catch((err) => console.log(err));
+// }
 
-document.getElementById('contact-form').addEventListener('submit', sendMail);
+// document.getElementById('contact-form').addEventListener('submit', sendMail);
 

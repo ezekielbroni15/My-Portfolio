@@ -1,4 +1,3 @@
-<?php
   /**
   * Requires the "PHP Email Form" library
   * The "PHP Email Form" library is available only in the pro version of the template
@@ -39,3 +38,31 @@
 
 //   echo $contact->send();
 //
+
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = htmlspecialchars($_POST['name']);
+  $email = htmlspecialchars($_POST['email']);
+  $subject = htmlspecialchars($_POST['subject']);
+  $message = htmlspecialchars($_POST['message']);
+
+  $to = "broniezekiel0@gmail.com"; // Replace this with YOUR email
+  $headers = "From: $email" . "\r\n" .
+             "Reply-To: $email" . "\r\n" .
+             "Content-Type: text/plain; charset=UTF-8";
+
+  $fullMessage = "Name: $name\n";
+  $fullMessage .= "Email: $email\n";
+  $fullMessage .= "Subject: $subject\n\n";
+  $fullMessage .= "Message:\n$message";
+
+  if (mail($to, $subject, $fullMessage, $headers)) {
+    header("Location: ../index.html?status=success"); // Redirect with query param
+    exit();
+  } else {
+    header("Location: ../index.html?status=error");
+    exit();
+  }
+}
+?>
